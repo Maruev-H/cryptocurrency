@@ -13,7 +13,7 @@
 ## Зависимости
 
 - React
-- Redux
+- Redux toolkit
 - SCSS (Sass)
 
 ## Установка и запуск
