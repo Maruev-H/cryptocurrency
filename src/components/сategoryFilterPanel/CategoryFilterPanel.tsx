@@ -97,11 +97,8 @@ const CategoryFilterPanel = () => {
     return (amount * rate).toFixed(2);
   };
 
-  const isCategoryFilterPanelVisiable =
-    selectedCategory !== "All" && selectedFrom !== "Choose currency";
+  const isCategoryFilterPanelVisiable = selectedFrom !== "Choose currency";
 
-  const isToOptionsVisiable = selectedFrom !== "Choose currency";
-  
   return (
     <div className="category-filter-panel">
       <select
@@ -119,17 +116,15 @@ const CategoryFilterPanel = () => {
         <option value="Choose currency">Choose currency</option>
         {getFromOptions()}
       </select>
-      {isToOptionsVisiable && (
-        <select
-          value={selectedTo}
-          onChange={handleToChange}
-          className="category-filter-panel__select"
-        >
-          {getToOptions()}
-        </select>
-      )}
       {isCategoryFilterPanelVisiable && (
         <>
+          <select
+            value={selectedTo}
+            onChange={handleToChange}
+            className="category-filter-panel__select"
+          >
+            {getToOptions()}
+          </select>
           <div className="category-filter-panel__amount">
             <input
               type="number"
