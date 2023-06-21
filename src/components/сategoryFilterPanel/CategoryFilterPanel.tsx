@@ -7,7 +7,7 @@ const CategoryFilterPanel = () => {
   const filter = useAppSelector((state) => state.filter.filter);
 
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  const [selectedFrom, setSelectedFrom] = useState<string>("");
+  const [selectedFrom, setSelectedFrom] = useState<string>("Choose currency");
   const [selectedTo, setSelectedTo] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
 
@@ -97,8 +97,11 @@ const CategoryFilterPanel = () => {
     return (amount * rate).toFixed(2);
   };
 
-  const isCurrencySelected =
+  const isCategoryFilterPanelVisiable =
     selectedCategory !== "All" && selectedFrom !== "Choose currency";
+
+  const isToOptionsVisiable = selectedFrom !== "Choose currency";
+  
   return (
     <div className="category-filter-panel">
       <select
@@ -116,14 +119,16 @@ const CategoryFilterPanel = () => {
         <option value="Choose currency">Choose currency</option>
         {getFromOptions()}
       </select>
-      <select
-        value={selectedTo}
-        onChange={handleToChange}
-        className="category-filter-panel__select"
-      >
-        {getToOptions()}
-      </select>
-      {isCurrencySelected && (
+      {isToOptionsVisiable && (
+        <select
+          value={selectedTo}
+          onChange={handleToChange}
+          className="category-filter-panel__select"
+        >
+          {getToOptions()}
+        </select>
+      )}
+      {isCategoryFilterPanelVisiable && (
         <>
           <div className="category-filter-panel__amount">
             <input
