@@ -23,9 +23,11 @@
 git clone https://github.com/Maruev-H/cryptocurrency
 
 cd category-filter-panel
+
 Установите зависимости:
 
 npm install
+
 Запустите приложение:
 
 npm start
