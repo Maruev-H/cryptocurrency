@@ -20,7 +20,7 @@
 
 1. Клонируйте репозиторий:
 
-git clone https://github.com/your/repo.git
+git clone https://github.com/Maruev-H/cryptocurrency
 
 cd category-filter-panel
 Установите зависимости:
